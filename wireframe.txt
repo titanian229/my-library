@@ -1,0 +1,20 @@
+Main page / Search page
+Nav
+Hero/Header
+Search Box
+    Search Input
+Results
+    Result
+        BookImage
+        Save/View Buttons
+ResultModal
+
+
+
+Saved page
+Nav
+Hero/Header
+
+    Result
+        BookImage
+        View/Delete Buttons
