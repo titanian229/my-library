@@ -8,6 +8,7 @@ import Saved from './pages/Saved';
 
 import Navbar from './components/Navbar';
 import Logo from './components/Logo'
+import HeaderEl from './components/Header'
 
 import AOS from 'aos';
 
@@ -27,6 +28,7 @@ function App() {
                     <Logo />
                     <NavbarWithRouter />
                 </Header>
+                <HeaderEl />
                 <Content style={{padding: "0 4vw"}}>
                     <Route exact path="/" component={Search} />
                     <Route exact path="/mylibrary" component={Saved} />
