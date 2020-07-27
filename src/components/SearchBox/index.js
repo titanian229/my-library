@@ -6,21 +6,27 @@ import API from '../../utils/api';
 const { Search } = Input;
 
 const processGoogleResponse = (res) => {
-    try {
-        const {
-            title,
-            authors,
-            publishedDate,
-            description,
-            pageCount,
-            imageLinks: { thumbnail: image },
-            infoLink,
-        } = res.volumeInfo;
+    const {
+        title = '',
+        authors = '',
+        publishedDate = '',
+        description = '',
+        pageCount = '',
+        infoLink = '',
+    } = res.volumeInfo;
 
-        return { title, author: authors.join(', '), publishedDate, description, pageCount, image, link: infoLink };
-    } catch (err) {
-        console.log(err);
+    let image;
+
+    if (res.volumeInfo.imageLinks) {
+        image =
+            res.volumeInfo.imageLinks.thumbnail ||
+            'https://www.archgard.com/assets/upload_fallbacks/image_not_found-54bf2d65c203b1e48fea1951497d4f689907afe3037d02a02dcde5775746765c.png';
+    } else {
+        image =
+            'https://www.archgard.com/assets/upload_fallbacks/image_not_found-54bf2d65c203b1e48fea1951497d4f689907afe3037d02a02dcde5775746765c.png';
     }
+
+    return { title, author: authors.join(', '), publishedDate, description, pageCount, image, link: infoLink };
 };
 
 const SearchBox = (props) => {

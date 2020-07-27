@@ -1,13 +1,14 @@
 import './style.scss';
-import React, { useState } from 'react';
-import { Card } from 'antd';
+import React from 'react';
+import { Card, Typography } from 'antd';
 import DeleteButton from '../DeleteButton';
 import SaveButton from '../SaveButton';
 import ViewButton from '../ViewButton';
+
+const { Paragraph } = Typography;
 const { Meta } = Card;
 
 const Book = (props) => {
-
     // const [bookData, setBookdata] = useState(null)
 
     //has two buttons passed in, has raw book json passed in,
@@ -18,26 +19,25 @@ const Book = (props) => {
         buttons = [<ViewButton book={props.book} />, <SaveButton book={props.book} />];
     }
 
-    // const {title, author, description, image, link} = props
-    const { title, author, description, image, link } = props.book;
-
+    const { title, author, description, image } = props.book;
 
     const cardDescription = (
         <>
             <p>
                 {title} by {author}
             </p>
-            <p>{description}</p>
-            <p>
+            <Paragraph ellipsis={{ rows: 3, expandable: true, symbol: 'more' }}>{description}</Paragraph>
+            {/* <p>
                 <a href={link} target="_blank" rel="noopener noreferrer">
                     See this book online
                 </a>
-            </p>
+            </p> */}
         </>
     );
 
     return (
         <Card
+            className="bookCard"
             // style={{ width: 320 }}
             cover={<img alt={title} src={image} />}
             actions={buttons}
