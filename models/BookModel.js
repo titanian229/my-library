@@ -10,7 +10,7 @@ const bookSchema = new Schema({
     description: String,
     pageCount: String,
     infoLink: String,
-    id: String,
+    googleId: String,
 });
 
 const Book = mongoose.model('Book', bookSchema);

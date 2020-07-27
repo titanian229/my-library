@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-// const routes = require('./routes');
+const routes = require('./routes');
 const mongoose = require('mongoose')
 const logger = require('morgan');
 
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger('dev'));
 
-// app.use(routes);
+app.use(routes);
 
 app.use(express.static('build'));
 
