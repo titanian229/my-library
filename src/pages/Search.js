@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography } from 'antd';
 import BookContainer from '../components/BookContainer'
+import SearchBox from '../components/SearchBox'
 
 const { Title } = Typography;
 
@@ -159,6 +160,7 @@ const Search = () => {
     return (
         <div>
             <Title>Search for a book</Title>
+            <SearchBox />
             <BookContainer books={books} />
         </div>
     );

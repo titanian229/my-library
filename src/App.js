@@ -33,7 +33,7 @@ function App() {
                     <Route exact path="/" component={Search} />
                     <Route exact path="/mylibrary" component={Saved} />
                 </Content>
-                <Footer>TestingFooter</Footer>
+                <Footer>&copy; James Lee 2020</Footer>
             </Layout>
         </Router>
     );
