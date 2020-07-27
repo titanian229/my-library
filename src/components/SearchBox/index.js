@@ -6,9 +6,10 @@ import API from '../../utils/api';
 const { Search } = Input;
 
 const processGoogleResponse = (res) => {
+    console.log('processing response', res)
     const {
         title = '',
-        authors = '',
+        authors = ['n/a'],
         publishedDate = '',
         description = '',
         pageCount = '',
@@ -25,8 +26,9 @@ const processGoogleResponse = (res) => {
         image =
             'https://www.archgard.com/assets/upload_fallbacks/image_not_found-54bf2d65c203b1e48fea1951497d4f689907afe3037d02a02dcde5775746765c.png';
     }
-
-    return { title, author: authors.join(', '), publishedDate, description, pageCount, image, link: infoLink };
+    const returnedBook = { title, author: authors.join(', '), publishedDate, description, pageCount, image, link: infoLink }
+    console.log('retBook', returnedBook)
+    return returnedBook;
 };
 
 const SearchBox = (props) => {
@@ -35,7 +37,10 @@ const SearchBox = (props) => {
     const runSearch = (searchString) => {
         console.log(searchString);
         API.getGoogleBook(searchString)
-            .then((res) => res.data.items.map((book) => processGoogleResponse(book)))
+            .then((res) => {
+                console.log(res.data)
+                return res.data.items.map((book) => processGoogleResponse(book))
+            })
             .then((res) => props.addBookResults(res)); //.then(res => console.log(res))
     };
 

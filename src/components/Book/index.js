@@ -14,7 +14,7 @@ const Book = (props) => {
     //has two buttons passed in, has raw book json passed in,
     let buttons;
     if (props.saved) {
-        buttons = [<ViewButton book={props.book} />, <DeleteButton book={props.book} />];
+        buttons = [<ViewButton book={props.book} />, <DeleteButton book={props.book} removeBook={props.removeBook} />];
     } else {
         buttons = [<ViewButton book={props.book} />, <SaveButton book={props.book} />];
     }

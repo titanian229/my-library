@@ -8,6 +8,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 const cors = require('cors');
 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -24,7 +25,6 @@ app.use(compression());
 app.use(bodyParser.json());
 
 app.use(routes);
-
 app.use(express.static('build'));
 app.get('*', (req, res) => {
     res.sendFile('build/index.html', { root: __dirname });

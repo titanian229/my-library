@@ -9,6 +9,13 @@ const Saved = () => {
 
     const [books, setBooks] = useState([])
 
+    const removeBook = (bookToDelete) => {
+        console.log('removing books called yay', bookToDelete)
+        API.deleteBook(bookToDelete._id)
+        setBooks(books.filter(book => book._id !== bookToDelete._id))
+    }
+
+
     useEffect(() => {
         API.getBooks()
             .then(res => res.data)
@@ -18,7 +25,7 @@ const Saved = () => {
     return (
         <div>
             <Title>Your saved books</Title>
-            <BookContainer books={books} saved />
+            <BookContainer removeBook={removeBook} books={books} saved />
         </div>
     );
 };

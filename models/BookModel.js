@@ -9,7 +9,7 @@ const bookSchema = new Schema({
     publishedDate: String,
     description: String,
     pageCount: String,
-    infoLink: String,
+    link: String,
     googleId: String,
 });
 

@@ -1,12 +1,21 @@
 import './style.scss';
 import React from 'react'
-import { Button } from 'antd'
+import { Button, notification } from 'antd'
 import API from '../../utils/api'
 
 const SaveButton = (props) => {
 
+    const openNotification = () => {
+        notification.open({
+            message: 'Book Saved!',
+            description:
+              'Your book has been saved to your library!  Access it in the Saved Books page.',
+          });
+    }
+
     const saveBook = () => {
-        API.saveBook(props.book)
+        API.saveBook(props.book).then(() => openNotification())
+
     }
 
     return (

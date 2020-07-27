@@ -14,11 +14,11 @@ module.exports = (router) => {
     });
 
     router.delete('/api/books/:id', (req, res) => {
-        Book.findByIdAndRemove(req.params.id, (err, res) => {
+        Book.findByIdAndRemove(req.params.id, (err, ret) => {
             if (err) return res.status(500).send(err);
             const response = {
                 message: 'Book removed',
-                id: res._id,
+                id: ret._id,
             };
             return res.status(200).send(response);
         });
