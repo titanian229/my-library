@@ -4,6 +4,13 @@ A web application for finding books using the google books API, and saving them 
 
 ![Search Page](./readmeAssets/search.jpg)
 
+![Search with query Page](./readmeAssets/searchresults.jpg)
+
+![Saved Page](./readmeAssets/saved.jpg)
+
+![Pagination](./readmeAssets/pagination.jpg)
+
+
 
 ## Technologies
 
