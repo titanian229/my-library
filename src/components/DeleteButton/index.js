@@ -10,7 +10,7 @@ const DeleteButton = (props) => {
 
     return (
         <Popconfirm
-            title="Are you sure delete this book?"
+            title="Are you sure you want to delete this book?"
             onConfirm={deleteBookClick}
             onCancel={() => console.log('cancelled')}
             okText="Delete"
