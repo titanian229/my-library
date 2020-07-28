@@ -52,6 +52,7 @@ const SearchBox = (props) => {
             .then((res) => {
                 if (res.data.totalItems > 0) {
                     console.log('yes', res)
+                    props.addTotalAPIResults(Number(res.data.totalItems))
                     return res.data.items.map((book) => processGoogleResponse(book));
                 } else {
                     console.log('no', res)
