@@ -25,7 +25,7 @@ A web application for finding books using the google books API, and saving them 
 
 ## Usage
 
-From the search page, enter a search in the text field.  Search can contain author, title, any details you want.  Either pressing Enter or the Search button will populate the area below with up to ten results from Google Books.  Pressing the view button will open that result in Google Books in a new tab, pressing save will save that book to your personal library.
+From the search page, enter a search in the text field.  Search can contain author, title, any details you want.  Either pressing Enter or the Search button will populate the area below with up to ten results from Google Books.  Pressing the view button will open that result in Google Books in a new tab, pressing save will save that book to your personal library.  The search results are paginated, with setable items per page as well.
 
 On the Saved Books page, the page will populate with all of the books you've chosen to save.  You can view them in Google Books by clicking the View button, or delete the book with the delete button.
 
