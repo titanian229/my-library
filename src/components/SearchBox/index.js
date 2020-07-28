@@ -1,12 +1,11 @@
 import './style.scss';
 import React from 'react';
-import { Input } from 'antd';
+import { Input, notification } from 'antd';
 import API from '../../utils/api';
 
 const { Search } = Input;
 
 const processGoogleResponse = (res) => {
-    console.log('processing response', res)
     const {
         title = '',
         authors = ['n/a'],
@@ -26,22 +25,41 @@ const processGoogleResponse = (res) => {
         image =
             'https://www.archgard.com/assets/upload_fallbacks/image_not_found-54bf2d65c203b1e48fea1951497d4f689907afe3037d02a02dcde5775746765c.png';
     }
-    const returnedBook = { title, author: authors.join(', '), publishedDate, description, pageCount, image, link: infoLink }
-    console.log('retBook', returnedBook)
+    const returnedBook = {
+        title,
+        author: authors.join(', '),
+        publishedDate,
+        description,
+        pageCount,
+        image,
+        link: infoLink,
+    };
     return returnedBook;
+};
+
+const displayNoneFound = () => {
+    notification.open({
+        message: 'No matches found',
+        description: 'Sorry, nothing was returned from Google Books for that search',
+    });
 };
 
 const SearchBox = (props) => {
     // addBookResults
 
     const runSearch = (searchString) => {
-        console.log(searchString);
         API.getGoogleBook(searchString)
             .then((res) => {
-                console.log(res.data)
-                return res.data.items.map((book) => processGoogleResponse(book))
+                if (res.length > 0) {
+                    return res.data.items.map((book) => processGoogleResponse(book));
+                } else {
+                    displayNoneFound();
+                    return []
+                }
             })
-            .then((res) => props.addBookResults(res)); //.then(res => console.log(res))
+            .then((res) => {
+                props.addBookResults(res);
+            }); //.then(res => console.log(res))
     };
 
     return (
