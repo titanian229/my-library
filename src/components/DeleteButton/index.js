@@ -15,11 +15,7 @@ const DeleteButton = (props) => {
             okText="Delete"
             cancelText="Cancel"
         >
-            <Button
-                type="default"
-                danger
-                shape="round"
-            >
+            <Button type="default" danger shape="round">
                 Delete
             </Button>
         </Popconfirm>
@@ -27,4 +23,3 @@ const DeleteButton = (props) => {
 };
 
 export default DeleteButton;
-// () => {API.deleteBook(props.book._id)}

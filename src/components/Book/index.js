@@ -51,17 +51,3 @@ const Book = (props) => {
 };
 
 export default Book;
-
-// function bookReturnParser(bookData) {
-//     const {
-//         title,
-//         authors,
-//         publishedDate,
-//         description,
-//         pageCount,
-//         imageLinks: { thumbnail: image },
-//         infoLink,
-//     } = bookData.volumeInfo;
-
-//     return { title, author: authors.join(', '), publishedDate, description, pageCount, image, link: infoLink };
-// }

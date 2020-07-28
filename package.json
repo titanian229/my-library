@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "startdev": "yarn build && nodemon server.js",
+    "start:dev": "yarn build && nodemon server.js",
     "startReact": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

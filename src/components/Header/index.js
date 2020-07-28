@@ -11,7 +11,7 @@ const Header = () => {
                 backgroundSize: 'cover',
                 width: '100%',
                 height: '35vh',
-                marginBottom: "1em"
+                marginBottom: '1em',
             }}
         ></div>
     );
