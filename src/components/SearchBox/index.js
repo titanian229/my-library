@@ -2,40 +2,9 @@ import './style.scss';
 import React from 'react';
 import { Input, notification } from 'antd';
 import API from '../../utils/api';
+import processGoogleResponse from '../../utils/sanitizeResults'
 
 const { Search } = Input;
-
-const processGoogleResponse = (res) => {
-    const {
-        title = '',
-        authors = ['n/a'],
-        publishedDate = '',
-        description = '',
-        pageCount = '',
-        infoLink = '',
-    } = res.volumeInfo;
-
-    let image;
-
-    if (res.volumeInfo.imageLinks) {
-        image =
-            res.volumeInfo.imageLinks.thumbnail ||
-            'https://www.archgard.com/assets/upload_fallbacks/image_not_found-54bf2d65c203b1e48fea1951497d4f689907afe3037d02a02dcde5775746765c.png';
-    } else {
-        image =
-            'https://www.archgard.com/assets/upload_fallbacks/image_not_found-54bf2d65c203b1e48fea1951497d4f689907afe3037d02a02dcde5775746765c.png';
-    }
-    const returnedBook = {
-        title,
-        author: authors.join(', '),
-        publishedDate,
-        description,
-        pageCount,
-        image,
-        link: infoLink,
-    };
-    return returnedBook;
-};
 
 const displayNoneFound = () => {
     notification.open({
@@ -48,7 +17,8 @@ const SearchBox = (props) => {
     // addBookResults
 
     const runSearch = (searchString) => {
-        API.getGoogleBook(searchString)
+        props.addSearchQuery(searchString)
+        API.getGoogleBookPage(searchString, 0, 10)
             .then((res) => {
                 if (res.data.totalItems > 0) {
                     console.log('yes', res)

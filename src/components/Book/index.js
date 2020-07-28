@@ -45,7 +45,7 @@ const Book = (props) => {
 
             <Row gutter={16} style={{ marginBottom: 10 }}>
                 <Col className="gutter-row" span={12}>
-                    <img alt={title} src={image} />
+                    {image ? <img alt={title} src={image} /> : ''}
                 </Col>
                 <Col className="gutter-row" span={12}>
                     <p className="aboutString">{title}</p>
