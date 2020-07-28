@@ -50,9 +50,11 @@ const SearchBox = (props) => {
     const runSearch = (searchString) => {
         API.getGoogleBook(searchString)
             .then((res) => {
-                if (res.length > 0) {
+                if (res.data.totalItems > 0) {
+                    console.log('yes', res)
                     return res.data.items.map((book) => processGoogleResponse(book));
                 } else {
+                    console.log('no', res)
                     displayNoneFound();
                     return []
                 }

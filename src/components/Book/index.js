@@ -1,6 +1,6 @@
 import './style.scss';
 import React from 'react';
-import { Card, Typography } from 'antd';
+import { Card, Typography, Row, Col, Divider } from 'antd';
 import DeleteButton from '../DeleteButton';
 import SaveButton from '../SaveButton';
 import ViewButton from '../ViewButton';
@@ -23,9 +23,6 @@ const Book = (props) => {
 
     const cardDescription = (
         <>
-            <p>
-                {title} by {author}
-            </p>
             <Paragraph ellipsis={{ rows: 3, expandable: true, symbol: 'more' }}>{description}</Paragraph>
             {/* <p>
                 <a href={link} target="_blank" rel="noopener noreferrer">
@@ -39,13 +36,24 @@ const Book = (props) => {
         <Card
             className="bookCard"
             // style={{ width: 320 }}
-            cover={<img alt={title} src={image} />}
+            // cover={<img alt={title} src={image} />}
             actions={buttons}
             hoverable
         >
             {/* <p className="author">{author}</p>
             testing */}
-            <Meta title={title} description={cardDescription} />
+
+            <Row gutter={16} style={{ marginBottom: 10 }}>
+                <Col className="gutter-row" span={12}>
+                    <img alt={title} src={image} />
+                </Col>
+                <Col className="gutter-row" span={12}>
+                    <p className="aboutString">{title}</p>
+                    <p> {author}</p>
+                </Col>
+            </Row>
+            <Divider />
+            <Meta description={cardDescription} />
         </Card>
     );
 };

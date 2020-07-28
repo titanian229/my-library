@@ -20,6 +20,9 @@
 
 .bookCard {
     // position: relative;
+    // flex-grow: 1;
+    // min-width: 300px;
+    // max-width: 340px;
     display: flex;
     flex-direction: column;
 
@@ -33,4 +36,8 @@
         margin-top: auto;
         
     }
+}
+
+.aboutString {
+    font-weight: bold;
 }
